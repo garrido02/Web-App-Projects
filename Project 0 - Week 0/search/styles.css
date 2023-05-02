@@ -7,47 +7,39 @@
     justify-content: right;
 }
 
-
 body {
     margin: 0;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
 }
-
 
 #google_logo {
     width: 80px;
 }
 
-
 .menu {
     text-align: right;
 }
-
 
 .menu, .logo {
     display: inline-block;
     width: 50%;
 }
 
-
 .menu_items {
     color: black;
     text-decoration: none;
     padding-right: 20px;
-
 }
 
+.menu_items:hover{
+    text-decoration: underline;
+}
 
 form {
     text-align: center;
     margin: 20px;
 }
-
-
-.submit_button {
-    margin: 20px;
-}
-
-
 
 .textbox {
     border: 1px solid black;
@@ -57,7 +49,6 @@ form {
     padding-left: 20px;
 }
 
-
 table {
     margin: 20px;
     font-family:Arial, Helvetica, sans-serif;
@@ -65,29 +56,66 @@ table {
 
 }
 
-td > h3 {
-    padding-right: 40px;
+td > p {
+    margin-right: 40px;
 
 }
 
 td > input {
-    width: 1000px;
+    width: 500px;
+    text-indent: 4px;
+    height: 25px;
+}
+
+#header{
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.button {
+    color: black;
+    border: 1px solid gray;
+    margin: 20px;
+    padding: 10px;
 }
 
 #submit_advanced {
     background-color: blue;
     color: white;
     border: none;
-    margin: 20px;
+    padding: 10px;
+}
+
+#submit_advanced:hover {
+    background-color: #3079ed;
+
 }
 
 #advanced {
-    margin-top: 40px;
+    margin-top: 10px;
     text-align: center;
+    width: 40%;
 }
 
 .heading {
     text-align: center;
     margin: 30px;
     padding: 20px;
+}
+
+#advanced_container {
+    width: 684px;
+    height: 41px;
+    margin-left: 20px;
+    text-align: right;
+}
+
+#pre_form {
+    margin: 25px 35px;
+    font-size: 22px;
+    color: #f28b82;
+}
+
+label {
+    margin-left: 10px;
 }
