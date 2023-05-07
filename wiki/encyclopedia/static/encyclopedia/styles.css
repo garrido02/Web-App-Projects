@@ -1,0 +1,68 @@
+body {
+    margin: 0;
+    background-color: white;
+}
+
+code {
+    white-space: pre;
+}
+
+h1 {
+    margin-top: 0px;
+    padding-top: 20px;
+}
+
+textarea {
+    height: 50vh;
+    width: 80%;
+    align-self: center;
+}
+
+.main {
+    padding: 10px;
+}
+
+.search {
+    width: 100%;
+    font-size: 15px;
+    line-height: 15px;
+}
+
+.sidebar {
+    background-color: #f0f0f0;
+    height: 100vh;
+    padding: 20px;
+}
+
+.sidebar h2 {
+    margin-top: 5px;
+}
+
+.container {
+    display: flex;
+    flex-direction:column;
+    height: 100%;
+}
+
+.btn {
+    border: 1px solid #3366cc;
+    color: #fff;
+    background-color: #36c;
+    align-self: flex-end;
+}
+
+.btn:hover{
+    color: #fff;
+    background-color: skyblue;
+}
+
+.input {
+    align-self: center;
+    width: 80%;
+}
+
+.frm {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
