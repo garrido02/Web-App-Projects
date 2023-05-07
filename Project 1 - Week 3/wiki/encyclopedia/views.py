@@ -8,9 +8,8 @@ import markdown2
 
 
 class NewForm(forms.Form):
-    title = forms.CharField(required=True, widget=forms.TextInput(attrs={"class": "input", "name": "title", "placeholder": "Title"}))
-    content = forms.CharField(widget=forms.Textarea(attrs={"name": "content", "placeholder": "Page Body"}), required=True)
-
+    title = forms.CharField(required=True, widget=forms.TextInput(attrs={"class": "input", "placeholder": "Title"}))
+    content = forms.CharField(widget=forms.Textarea(attrs={"placeholder": "Page Body"}), required=True)
 
 
 # Index route
@@ -24,11 +23,11 @@ def index(request):
         # If exists then we redirect to the page
         if page_entry:
             return redirect(page, q)
-        
+
         # Otherwise we redirect to search route
         else:
             return redirect(search, q)
-    
+
     # If user uses GET then display page
     else:
         return render(request, "encyclopedia/index.html", {
@@ -45,8 +44,8 @@ def page(request, name):
         content = markdown2.markdown(page_entry)
         return render(request, "encyclopedia/page.html", {
             'entry': name,
-            'content': content 
-        })     
+            'content': content
+        })
 
 # Search route for a requested <search> that is not exactly a page that exists
 def search(request, s):
@@ -61,14 +60,14 @@ def search(request, s):
         return render(request, "encyclopedia/apology.html")
 
 
-# New Page route 
+# New Page route
 def new(request):
     # Display page creation if user is acessing
     if request.method == 'GET':
         return render(request, "encyclopedia/new.html", {
             'form': NewForm()
         })
-    
+
     # Submit form and check if page exists
     else:
         form = NewForm(request.POST)
@@ -90,19 +89,20 @@ def edit(request, name):
     if request.method == 'GET':
         page_entry = util.get_entry(name)
         return render(request, "encyclopedia/edit.html", {
-            'content': page_entry,
-            'entry': name
+            'entry': name,
+            'form': NewForm(initial={'title':name, 'content':page_entry})
         })
-    
+
     # If user submits a change then update
     else:
-        data = request.POST
-        title = data.get("title")
-        content = data.get("content")
-        page_entry = util.get_entry(title)
-        util.save_entry(title, content)
-        return redirect(page, title)
-    
+        form = NewForm(request.POST)
+        if form.is_valid():
+            title = form.cleaned_data["title"]
+            content = form.cleaned_data["content"]
+            page_entry = util.get_entry(title)
+            util.save_entry(title, content)
+            return redirect(page, title)
+
 
 # Def Random Page
 def random_page(request):
