@@ -43,7 +43,7 @@ def page(request, name):
     else:
         content = markdown2.markdown(page_entry)
         return render(request, "encyclopedia/page.html", {
-            'entry': name,
+            'entry': name.capitalize(),
             'content': content
         })
 
@@ -51,6 +51,7 @@ def page(request, name):
 def search(request, s):
     # Search current pages that are similar to the search prompt
     entries = util.list_entries()
+    s = s.capitalize()
     matches = get_close_matches(s, entries)
     if matches:
         return render(request, "encyclopedia/search.html", {
@@ -79,7 +80,7 @@ def new(request):
                 return render(request, "encyclopedia/page_exists.html", {
                 })
             else:
-                util.save_entry(title, content)
+                util.save_entry(title.capitalize(), content)
                 return redirect(page, title)
 
 
@@ -89,7 +90,7 @@ def edit(request, name):
     if request.method == 'GET':
         page_entry = util.get_entry(name)
         return render(request, "encyclopedia/edit.html", {
-            'entry': name,
+            'entry': name.capitalize(),
             'form': NewForm(initial={'title':name, 'content':page_entry})
         })
 
@@ -99,7 +100,6 @@ def edit(request, name):
         if form.is_valid():
             title = form.cleaned_data["title"]
             content = form.cleaned_data["content"]
-            page_entry = util.get_entry(title)
             util.save_entry(title, content)
             return redirect(page, title)
 
