@@ -3,9 +3,15 @@ from django import forms
 import markdown2
 from difflib import get_close_matches
 import random
-
 from . import util
 import markdown2
+
+
+class NewForm(forms.Form):
+    title = forms.CharField(required=True, widget=forms.TextInput(attrs={"class": "input", "name": "title", "placeholder": "Title"}))
+    content = forms.CharField(widget=forms.Textarea(attrs={"name": "content", "placeholder": "Page Body"}), required=True)
+
+
 
 # Index route
 def index(request):
@@ -38,8 +44,8 @@ def page(request, name):
     else:
         content = markdown2.markdown(page_entry)
         return render(request, "encyclopedia/page.html", {
-            'entry': name.capitalize(),
-            'content': content   
+            'entry': name,
+            'content': content 
         })     
 
 # Search route for a requested <search> that is not exactly a page that exists
@@ -59,19 +65,23 @@ def search(request, s):
 def new(request):
     # Display page creation if user is acessing
     if request.method == 'GET':
-        return render(request, "encyclopedia/new.html")
+        return render(request, "encyclopedia/new.html", {
+            'form': NewForm()
+        })
     
     # Submit form and check if page exists
     else:
-        data = request.POST
-        title = data.get("title")
-        content = data.get("content")
-        page_entry = util.get_entry(title)
-        if page_entry:
-            return render(request, "encyclopedia/page_exists.html")
-        else:
-            util.save_entry(title, content)
-            return redirect(page, title)
+        form = NewForm(request.POST)
+        if form.is_valid():
+            title = form.cleaned_data["title"]
+            content = form.cleaned_data["content"]
+            page_entry = util.get_entry(title)
+            if page_entry:
+                return render(request, "encyclopedia/page_exists.html", {
+                })
+            else:
+                util.save_entry(title, content)
+                return redirect(page, title)
 
 
 # Edit page route

@@ -11,10 +11,10 @@
     <div class="container">
         <form class="frm" action="{% url 'new' %}" method="post">
             {% csrf_token %}
-            <input class="input" type="text" name="title" placeholder="Title" required></input>  
+            {{ form.title }}
             <br>
             <br>
-            <textarea name="content" required></textarea>
+            {{ form.content }}
             <br>
             <br>
             <button class="btn" name="submit" type="submit">Save Page</button>
