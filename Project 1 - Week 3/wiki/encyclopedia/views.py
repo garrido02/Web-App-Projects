@@ -1,15 +1,34 @@
 from django.shortcuts import render, redirect
 from django import forms
 import markdown2
-from difflib import get_close_matches
 import random
 from . import util
 import markdown2
 
 
+
+
+# Form Class
 class NewForm(forms.Form):
     title = forms.CharField(required=True, widget=forms.TextInput(attrs={"class": "input", "placeholder": "Title"}))
     content = forms.CharField(widget=forms.Textarea(attrs={"placeholder": "Page Body"}), required=True)
+
+
+# Function to check all possible string combos in order to get correct entry
+def string_combo(name):
+    # Check all possible string combinations
+    name = name.lower()
+    page_entry = util.get_entry(name)
+
+    if not page_entry:
+        name = name.upper()
+        page_entry = util.get_entry(name)
+
+    if not page_entry:
+        name = name.capitalize()
+        page_entry = util.get_entry(name)
+
+    return name
 
 
 # Index route
@@ -18,10 +37,12 @@ def index(request):
     if request.method == "POST":
         data = request.POST
         q = data.get("q")
-        page_entry = util.get_entry(q)
+
+        # Check all possible string combinations
+        q = string_combo(q)
 
         # If exists then we redirect to the page
-        if page_entry:
+        if util.get_entry(q):
             return redirect(page, q)
 
         # Otherwise we redirect to search route
@@ -37,13 +58,17 @@ def index(request):
 
 # Add page route to show a requested page with called <name>
 def page(request, name):
+    # Check all possible string combinations
+    name = string_combo(name)
     page_entry = util.get_entry(name)
+
     if not page_entry:
         return render(request, "encyclopedia/apology.html")
+
     else:
         content = markdown2.markdown(page_entry)
         return render(request, "encyclopedia/page.html", {
-            'entry': name.capitalize(),
+            'entry': name,
             'content': content
         })
 
@@ -51,14 +76,14 @@ def page(request, name):
 def search(request, s):
     # Search current pages that are similar to the search prompt
     entries = util.list_entries()
-    s = s.capitalize()
-    matches = get_close_matches(s, entries)
-    if matches:
-        return render(request, "encyclopedia/search.html", {
-            'matches': matches
-        })
-    else:
-        return render(request, "encyclopedia/apology.html")
+    matches = []
+    for entry in entries:
+        if s.lower() in entry.lower():
+            matches.append(entry)
+
+    return render(request, "encyclopedia/search.html", {
+        'matches': matches
+    })
 
 
 # New Page route
@@ -74,13 +99,14 @@ def new(request):
         form = NewForm(request.POST)
         if form.is_valid():
             title = form.cleaned_data["title"]
+            title = title.capitalize()
             content = form.cleaned_data["content"]
             page_entry = util.get_entry(title)
             if page_entry:
                 return render(request, "encyclopedia/page_exists.html", {
                 })
             else:
-                util.save_entry(title.capitalize(), content)
+                util.save_entry(title, content)
                 return redirect(page, title)
 
 
