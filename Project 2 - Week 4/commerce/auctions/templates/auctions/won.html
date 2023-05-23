@@ -1,0 +1,26 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %}Won Auctions{% endblock %}
+
+{% block body %}
+    <h2>Auction Won</h2>
+            {% if not auction %}
+                <p> You have not won any auction.</p>
+            {% elif auction.creator != user %}
+                {% for item in auction %}
+                    <div class="entry">
+                        <div class="left">
+                            {% if item.image %}
+                                <a href="{% url 'listing' item.id %}"><img class="image" src="{{ item.image }}" alt="{{ item.name }}"></a>
+                            {% endif %}
+                        </div>
+                        <div class="right">
+                            <p><a href="{% url 'listing' item.id %}"><b>{{ item.name }}</b></a></p>
+                            <p>{{ item.description }}</p>
+                            <p><b>Price:</b> ${{ item.bid }}</p>  
+                            <p>Created {{ item.date }}, {{ item.time }}</p>
+                        </div>      
+                    </div>
+                {% endfor %}
+            {% endif %}
+{% endblock %}

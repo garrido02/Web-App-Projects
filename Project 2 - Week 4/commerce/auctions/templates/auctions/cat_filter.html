@@ -1,0 +1,29 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %}{{ choice }} Auctions{% endblock %}
+
+{% block body %}
+    <h2>{{ choice }} Auctions </h2>
+    <br>
+    {% if listings %}
+        {% for listing in listings %}
+            <div class="entry">
+                <div class="left">
+                    {% if listing.image %}
+                        <a href="{% url 'listing' listing.id %}"><img class="image" src="{{ listing.image }}" alt="{{ listing }}"></a>
+                    {% endif %}
+                </div>
+                <div class="right">
+                    <p><a href="{% url 'listing' listing.id %}"><b>{{ listing.name }}</b></a></p>
+                    <p>{{ listing.description }}</p>
+                    <p><b>Price:</b> ${{ listing.bid }}</p>  
+                    <p>Created {{ listing.date }}, {{ listing.time }}</p>
+                </div>
+            </div>
+        {% endfor %}
+        <a href="{% url 'category' %}">Previous Page</a>      
+    {% else %}
+        <p>There are no listings for this category.</p>
+        <a href="{% url 'category' %}">Previous Page</a>
+    {% endif %}
+{% endblock %}
