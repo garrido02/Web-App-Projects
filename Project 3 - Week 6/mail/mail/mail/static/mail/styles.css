@@ -1,0 +1,32 @@
+textarea {
+    min-height: 400px;
+}
+
+.btn{
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+#emails-view {
+    display: flex;
+    flex-direction: column;
+}
+
+.mail {
+    border: solid 1px black;
+    margin-top: 2px;
+    padding: 2px;
+}
+
+a, a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+#body {
+    text-align: justify;
+}
+
+.list-group-item {
+    border: none;
+}
