@@ -1,0 +1,131 @@
+@keyframes show {
+    from {
+        transform: translateX(-2000px);
+        height: 0;
+        line-height: 0;
+        padding: 0;
+        background-color: gray;
+        margin-top: -160px;
+    }
+
+    to {
+        transform: translateX(0);
+        height: 100%;
+        padding: 20px;
+        line-height: normal;
+        margin-top: 20px;
+    }
+}
+
+body {
+    padding: 20px;
+}
+
+#post-form {
+    margin-bottom: 40px;
+}
+
+#new_post-container {
+    border-radius: 20px;
+    border: solid 2px gray;
+    padding: 20px; 
+    margin-bottom: 40px;
+}
+
+#main-container, #profile-view {
+    margin: 20px;
+}
+
+textarea{
+    min-height: 100px;
+    min-width: 100px;
+}
+
+.btn{
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.image, .image:hover {
+    width: 20px;
+}
+
+.post {
+    border-radius: 20px;
+    border: solid 1px gray;
+    padding: 20px;
+    transition-duration: 1.2s;
+    margin-top: 20px;
+    animation: none;
+    animation-duration: 0.8s;
+    animation-fill-mode: forwards;
+    animation-play-state: paused;
+    animation-timing-function: ease-in;
+}
+
+.post:hover{
+    background-color: lightgray;
+    transition-duration: 0.6s;
+}
+
+.body {
+    font-weight: normal;
+    font-size: 18px;
+}
+
+.timestamp {
+    font-weight: normal;
+    color: gray;
+    font-size: 14px
+}
+
+#profile-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 60px;
+    margin-top: 20px;
+}
+
+#profile-counters{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 60px;
+    margin-top: 20px;
+    gap: 100px;
+}
+
+.follower-count, .followers, .following-count, .following {
+    text-align: center;
+    justify-content: center;
+    font-size: 30px;
+}
+
+#follow_posts:hover, #all_posts:hover {
+    cursor: pointer;
+}
+
+.profile {
+    text-decoration: none;
+    color: black
+}
+
+.profile:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    color: blue;
+}
+
+.like {
+    border-radius: 20px;
+}
+
+.button-container{
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px;
+}
