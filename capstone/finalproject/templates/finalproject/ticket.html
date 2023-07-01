@@ -1,0 +1,32 @@
+{% extends "finalproject/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+    <br><br><br><br><br><br>
+    <h2 id="profile-user" class="small-caps-2 profile-title">{{ message.author }}</h2>
+    <br><br><br><br>
+
+    <p class="small-caps-2 profile-nick"> Ticket Content</p>
+    <div class="ticket-content">
+        <br>
+        <form onsubmit="close_ticket()">
+            <input hidden id="id-ticket" value="{{ message.id }}"></input>
+            <p class="ticket form-control">Email: {{ message.email }}</p>
+            <p class="ticket form-control">Created: {{ message.timestamp }}</p>
+            <p class="ticket form-control">Subject: {{ message.subject }}</p>
+            <p id="ticket-solved" class="ticket form-control">                 
+                {% if message.solved == True %}
+                    Status: Solved
+                {% else %}
+                    Status: Pending
+                {% endif %}</p>
+            <p class="ticket form-control">Body: {{ message.body }}</p>
+            {% if user.username == "admin" and message.solved == False %}
+            <br>
+                <input id="close-button" class="button" type="submit" value="Fechar Ticket">
+            {% endif %}
+        </form>   
+    </div>
+    <br><br><br>
+{% endblock %}

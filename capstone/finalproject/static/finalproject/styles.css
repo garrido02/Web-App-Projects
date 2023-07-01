@@ -1,0 +1,101 @@
+
+textarea {min-height: 100px;max-width: 1000px;}
+#ticket-container {margin-top: 40px;padding: 20px}
+#user-name-item, #user-name-item:hover{text-decoration: none;color: red;cursor: pointer;}
+body, html {height: 100%;line-height: 1.8; width: auto}
+.w3-bar, .w3-button {padding: 16px; overflow: hidden;}
+.w3-quarter {text-align: center;}
+.about-text {font-size: 20px; line-height: 1.4; font-family: proxima-nova, sans-serif; font-weight: 400;}
+.w3-container{margin-top: 80px;margin-bottom: 100px;}
+.form-control {width: 60%;border: 1px solid #212529;font-size: 16px;color: gray;margin-bottom: 5px;}
+.messages {border: 1px solid #212529;border-radius: 20px;padding: 20px}
+.message-view{cursor: pointer;text-decoration: none;}
+.ticket {color:#212529;border: none;   }
+.split-image {width: 50%}
+#sized {padding-left: 3vw;height: 20vw;}
+.instagram {padding:24px 48px}
+.about {color: #212529}
+.about-title{color: #212529;font-size: 30px}
+.about-info {color: dark-gray; font-size: 22px;}
+.about-container {margin-top:64px}
+.team-text {font-size: 22px; line-height: 1.4; font-family: proxima-nova, sans-serif; font-weight: 400;}
+.team-image {top: 15%}
+.promo {background-color: #212529; color:white}
+.promo-item {align-items: center; justify-content: center;}
+.pack-margin {margin-top:64px}
+.pack-item {width:100%}
+.contact-text {font-size: 18px; line-height: 1.4; font-family: proxima-nova, sans-serif; font-weight: 400;}
+.header-padding {padding: 48px;}
+.pack-desc{font-size: 14px;}
+.buy-warning {font-size: 16px; line-height: 1.4; font-family: proxima-nova, sans-serif; font-weight: 400;}
+.normal-video{padding-right: 20px}
+#navbar {background-color: black}
+.foot {background-color: black}
+.logo {width: 100%; height: 75px;}
+.small-nav {color: white; font-size: 18px;}
+#mySidebar {display:none; color: white; background-color: black;}
+.x {font-size: 18px;}
+.small-caps-2{color:#212529;letter-spacing:-.5px;text-transform:uppercase;font-family:proxima-nova-extra-condensed,sans-serif;font-size:22px;font-weight:900}
+.desktop-hide{display:none}
+.tablet-hide{display:none}
+.mobile-centre-align{text-align:center}
+.section{padding:120px 7vw;position:relative}
+.section.split-absolute-image.tablet-vertical{flex-direction:column;padding-bottom:80px;padding-right:7vw}
+.section.split-absolute-image.tablet-vertical{padding-left:7vw}
+.section.split-absolute-image{min-height:100vh;align-items:stretch;padding-top:0;padding-bottom:0;display:flex}
+.section.split-absolute-image{min-height:0;padding-right:0}
+.section.split-absolute-image{flex-direction:column;padding:48px 0 0}
+.container.right-text{justify-content:flex-end;padding-left:7vw;display:flex}
+.container.right-text.tab-et-relative{padding-left:0}
+.container{width:100%;max-width:1440px;margin-left:auto;margin-right:auto;position:relative}
+.container.right-text.tab-et-relative{padding-left:0}
+.w-richtext{content:"";display:none;position:absolute;top:0;bottom:0;left:0;right:0}
+.div-50{width:50%}
+.div-50.tablet-100{width:100%}
+.div-50.tablet-100.mobile-centre-align{text-align:center}
+.space-80{width:80px;height:80px}
+.portrait-hide{display:none}
+.tablet-image{width:100%;max-width:740px;margin-bottom:32px;margin-left:auto;margin-right:auto;display:block;}
+._940-container{width:100%;max-width:940px;margin-left:auto;margin-right:auto}
+.centred-text{text-align:center;order:0}
+.space-16{width:16px;height:16px;flex:none}
+.left-absolute-image{width:40%;background-position:50%;background-size:cover;margin-left:7vw;position:absolute;top:0%;bottom:0%;left:0%;right:auto}
+.container.right-text.tab-et-relative{padding-left:0}
+.right-absolute-image{width:40%;background-position:50%;background-size:cover;margin-right:7vw;position:absolute;top:0%;bottom:0%;left:auto;right:0%}
+.button{min-width:240px;color:#fff;text-align:center;letter-spacing:0;text-transform:uppercase;background-color:#000;border:2px solid #000;padding:16px 48px;font-family:proxima-nova-extra-condensed,sans-serif;font-size:1em;font-weight:900;line-height:1;text-decoration:none;transition:border-color .5s,background-color .5s,color .3s;display:inline-block}
+.button:hover{color:#ededeb;background-color:#212529;border-color:#212529}
+.section._100vh.flex-split{flex-direction:column}
+.section._100vh.flex-split.dark-grey-fill{padding-right:7vw}
+.section._100vh{min-height:100vh}
+.section._100vh.flex-split{align-items:center;padding-top:0;padding-bottom:0;padding-right:0;display:flex}
+.section._100vh.flex-split.dark-grey-fill{color:#ededeb;background-color:#232323}
+.split-div{flex:1;padding-top:120px;padding-bottom:120px}
+.split-div.left{padding-top:200px;padding-right:7vw}
+.split-div.left.section-padding{padding-top:120px}
+.invert-program-rich-text,h3{font-family:proxima-nova-extra-condensed,sans-serif}
+.h2-small{letter-spacing:-1px;font-size:2em}
+.container{width:100%;max-width:1440px;margin-left:auto;margin-right:auto;position:relative}
+.container.centre-align{text-align:center}
+.container.centre-align.fixed{flex-direction:column;align-items:center;padding-left:7vw;padding-right:7vw;display:none;position:fixed}
+.w-richtext-align-center{clear:both;margin-left:auto;margin-right:auto}
+.w-richtext-align-center>div{max-width:100%}
+.small-nav {color: white; font-size: 18px;}
+#mySidebar {display:none; color: white; background-color: black;}
+blockquote {border-left: 5px solid #ff2800;color: #fff;line-height: 1.8;}
+.button:hover {background-color: white;color: #212529;border: 2px solid #212529;}
+.header {color: white}
+.bgimg-1 {background-position: center;background-size: cover;min-height: 100%}
+.team-title{font-size: 18px;}
+.team-member {padding-right:26px}
+#team-display {display: flex;justify-content: center;flex-direction: row;}
+.profile-title {color: red; font-size: 30px;}
+.profile-nick {color: #212529;font-size: 18px}
+.pack-ben {color: #ff4500;}
+.invert-program-rich-text blockquote{background-color:transparent;background-image:linear-gradient(90deg,#0d0d0d,rgba(255,255,255,0));font-size:1em;line-height: 2.5;padding-left: 10px;}
+.sized{color:#ededeb;background-color:#232323;padding-left: 20px;}
+.buy{display: flex;flex-direction: column; width: 50%;}
+.left-promo{display:flex; flex-direction: column; width: 50%;}
+.right-promo{display:flex; flex-direction: column;width: 50%;}
+.packet-control{margin-left: 0px;}
+form {margin-left: 20px;}
+#profile-user, .profile-nick, .profile-pass, .messages  {margin-left: 20px;}

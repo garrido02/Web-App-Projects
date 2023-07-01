@@ -1,0 +1,48 @@
+{% extends "finalproject/layout.html" %}
+
+{% block body %}
+
+    <br><br><br><br><br><br>
+    <h2 id="profile-user" class="small-caps-2 profile-title">{{ user.nickname }}</h2>
+    <br>
+
+    <p class="small-caps-2 profile-nick"> Alterar Nickname</p>
+    <form  id="nickname-form" onsubmit="change_nick()">
+        <div class="form-group">
+            <input hidden id="user" value="{{ user.username }}">
+            <input class="form-control" autofocus type="text" id="nickname" placeholder="Nickname">
+        </div>
+        <br>
+        <input class="button" type="submit" value="Alterar">
+    </form>
+    <br><br>
+
+    <p class="small-caps-2 profile-nick"> Alterar Password</p>
+    <form  id="password-form" onsubmit="change_pass()">
+        <div class="form-group">
+            <input class="form-control" autofocus type="password" id="password" placeholder="Password">
+            <input class="form-control" autofocus type="password" id="con_password" placeholder="Confirm Password">
+        </div>
+        <br>
+        <input class="button" type="submit" value="Alterar">
+    </form>
+    <br><br>
+
+    <p class="small-caps-2 profile-nick"> Tickets</p>
+    <br>
+    {% if message %}
+        {% for m in message %}
+            <a href="{% url 'support' m.id %}" class="message-view"><div class="message-container">
+                <p class="messages" id="{{ m.id }}">{{ m.author }} | {{ m.subject }} | {{ m.body }} | {{ m.timestamp }}| 
+                {% if m.solved == True %}
+                    Status: Solved
+                {% else %}
+                    Status: Pending
+                {% endif %} </p>
+            </div></a>
+        {% endfor %}
+    {% else %}
+        <p>Ainda não submeteu nenhum ticket</p>
+    {% endif %}
+    <br><br>
+{% endblock %}

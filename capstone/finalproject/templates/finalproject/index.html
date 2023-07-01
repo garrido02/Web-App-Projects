@@ -1,0 +1,157 @@
+{% extends "finalproject/layout.html" %}
+{% load static %}
+
+
+{% block head %}          
+<header class="bgimg-1 w3-display-container w3-grayscale-min" style="background-image: url(static/finalproject/background_fullbody.jpg);" id="home">
+    <!-- Desktop Version -->
+    <div class="w3-display-left w3-hide-small w3-hide-medium w3-text-white header-padding">
+        <span class="w3-jumbo w3-hide-small small-caps-2 header">Evoluí Connosco</span><br>
+        <span class="w3-xxlarge w3-hide-large w3-hide-medium small-caps-2 header">Evoluí Connosco</span><br>
+        <span class="w3-large small-caps-2 header">Deixa de gastar tempo valioso sem obteres resultados</span>
+        <p><a href="#about" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off small-caps-2">A evolução começa agora<i class="fa fa-arrow-down w3-margin-left"></i></a></p>
+    </div>
+    <!-- Phone Version -->
+    <div class="w3-display-left w3-hide-medium w3-hide-large w3-text-white">
+        <span class="w3-jumbo w3-hide-small small-caps-2 header">Evoluí Connosco</span><br>
+        <span class="w3-xxlarge w3-hide-large w3-hide-medium small-caps-2 header">Evoluí Connosco</span><br>
+        <span class="w3-large small-caps-2 header">Deixa de gastar tempo valioso sem obteres resultados</span>
+        <p><a href="#about" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off small-caps-2">A evolução começa agora<i class="fa fa-arrow-down w3-margin-left"></i></a></p>
+    </div>
+    <div class="w3-display-bottomleft w3-text-grey w3-large instagram">
+        <i id="instagram_header" class="fa fa-instagram w3-hover-opacity instagram" onclick="instagram()"></i>
+    </div>
+</header>
+{% endblock %}
+
+
+{% block body %}
+    <br><br>
+    <!-- About Section -->
+    <div class="w3-container" id="about">
+        <h2 class="w3-center small-caps-2 about-title">QUEM SOMOS</h2>
+        <div class="w3-row-padding mobile-centre-align about-container">
+            <div class="w3-quarter mobile-centre-align">
+                <i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center about"></i>
+                <p class="small-caps-2 mobile-centre-align about-info">Acessibilidade</p>
+                <p class="about-text">Queremos oferecer um serviço acessível onde tu quiseres, quando quiseres</p>
+            </div>
+            <div class="w3-quarter mobile-centre-align">
+                <i class="fa fa-bullseye w3-margin-bottom w3-jumbo about"></i>
+                <p class="small-caps-2 mobile-centre-align" class="small-caps-2 mobile-centre-align about-info">Missão</p>
+                <p class="about-text">Influenciar a nossa comunidade a adotar hábitos saudáveis e o gosto pelo treino</p>
+            </div>
+            <div class="w3-quarter mobile-centre-align">
+                <i class="fa fa-book w3-margin-bottom w3-jumbo about"></i>
+                <p class="small-caps-2 mobile-centre-align about-info">Evidência</p>
+                <p class="about-text">Oferecer treinos com base em conhecimento científico, desenhados por profissionais com as melhores certificações do mercado</p>
+            </div>
+            <div class="w3-quarter mobile-centre-align">
+                <i class="fa fa-handshake-o w3-margin-bottom w3-jumbo about"></i>
+                <p class="small-caps-2 mobile-centre-align about-info">Apoio</p>
+                <p class="about-text">Durante a tua jornada terás acesso a um chat privado com os teus treinadores, para que nunca te sintas sozinho</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Team Section -->
+    <div class="w3-container" id="team">
+        <h2 class="w3-center small-caps-2 about-title">A EQUIPA</h2>
+        <br>
+        <p class="w3-center team-text">As caras por detrás dos treinos</p>  
+        <!-- Trainer -->
+        <br><br>
+        <div class="team-display">
+            {% for row in team %}
+                <div class="w3-col l6 m6 w3-margin-bottom centred-text team-member">
+                    <div class="w3-card">
+                    <img src="{{ row.image }}" alt="{{ row.short }}" style="width:100%">
+                    <div class="w3-container">
+                            <h3 class="small-caps-2">{{ row.name }}</h3>
+                            <p class="w3-opacity small-caps-2 team-title">{{ row.title }}</p>
+                            <br>
+                            <p class="about-info">{{ row.desc1 }}</p>
+                            <p class="about-info">{{ row.desc2 }}</p>
+                            <div class="centred-text mobile-centre-align">
+                                <div class="space-16"></div>
+                                <div><a onclick="trainer('{{ row.link }}')" class="button">Contacta {{ row.short }}</a></div>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>      
+
+    <!-- Promo Section "Statistics" -->
+    <div class="w3-container w3-row w3-center w3-padding-64 promo">
+        <div class="w3-quarter promo-item">
+            <span class="w3-xxlarge team-text">20+</span>
+            <br>
+            <p class="team-text">Alunos</p>
+        </div>
+        <div class="w3-quarter">
+            <span class="w3-xxlarge team-text">8+</span>
+            <br>
+            <p class="team-text">Programas de Treino</p> 
+        </div>
+        <div class="w3-quarter">
+            <span class="w3-xxlarge team-text">10+</span>
+            <br>
+            <p class="team-text">Dicas Saudáveis</p>
+        </div>
+        <div class="w3-quarter">
+            <span class="w3-xxlarge team-text">150+</span>
+            <br>
+            <p class="team-text">Mensagens de Elogio</p>
+
+        </div>
+    </div>
+
+    <!-- Programas Section -->
+    <div class="w3-container" id="pack">
+        <p class="w3-center small-caps-2 about-title">Pacotes</p>
+        <p class="w3-center team-text">Os nossos programas de 1 mês. Compra uma vez, usa quando quiseres!</p>
+        <div class="w3-row-padding pacote pack-margin">
+            {% for row in pack %}
+                <div class="w3-col l3 m6 w3-margin-bottom"><a class="pack-view" href="{% url 'pacote' row.short %}">
+                    <img src="{{ row.image }}" id="{{ row.short }}" class="w3-hover-opacity pack-item" alt="{{ row.name }}"></a>
+                </div>
+            {% endfor %}   
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="w3-container" id="contact">
+        <h2 class="w3-center small-caps-2 about-title">Contactos</h2>
+        <br>
+        <p class="w3-center team-text">Entra em contacto connosco</p>
+        <div class="header-padding">
+            <p class="contact-text"><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> Lisboa, Portugal</p>
+            <p class="contact-text"><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Telefone: +351 926 858 480</p>
+            <p class="contact-text"><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: maxyourworkout@gmail.com</p>
+            <br>
+            <form action="{% url 'ticket' %}" method="post">
+                {% csrf_token %}
+                {% if user.is_authenticated %}
+                    <input hidden id ="user" name="name" class="w3-input w3-border contact-text" type="text" required value="{{ user.nickname }}">
+                    <input hidden name="email" id="email" class="w3-input w3-border contact-text" type="email" required value="{{ user.email }}">
+                {% else %}
+                    <p><input class="w3-input w3-border contact-text " type="text" placeholder="Name" required name="name"></p>
+                    <p><input class="w3-input w3-border contact-text" type="email" placeholder="Email" required name="email"></p>
+                {% endif %}
+                    <p><input class="w3-input w3-border contact-text" type="text" placeholder="Subject" required name="subject"></p>
+                    <p><input class="w3-input w3-border contact-text" type="text" placeholder="Message" required rows="5" name="message"></p>
+                <br>
+                <br>
+                <div class="centred-text mobile-centre-align">
+                    <div class="space-16"></div>
+                    <input class="button" type="submit" value="Enviar"></input>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br>
+    <br>
+{% endblock %}

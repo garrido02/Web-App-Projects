@@ -1,0 +1,174 @@
+{% extends "finalproject/layout.html" %}
+
+{% block title %}: {{pack.name}} {% endblock %}
+
+{% block body %}
+        <br><br><br>
+        <!-- Image and benefits -->
+        <div class="sized">
+            <div class="split-div left section-padding sized"><p class="h2-small small-caps-2 header">PACOTE {{ pack.name }}</p>
+                <br>
+                <div><h3 class="small-caps-2 pack-ben">Benefícios</h3>
+                <br>
+                </div>
+                <div id="sized2" class="invert-program-rich-text small-caps-2 pack-desc">
+                    <blockquote>{{ pack.desc1 }}</blockquote>
+                    <blockquote>{{ pack.desc2 }}</blockquote>
+                    <blockquote>{{ pack.desc3 }}</blockquote>
+                    <blockquote>{{ pack.desc4 }}</blockquote>
+                    <blockquote>{{ pack.desc5 }}</blockquote>
+                    <blockquote>{{ pack.desc6 }}</blockquote>
+                </div>      
+            </div>
+        </div>
+
+        <!-- Install App -->
+        <div class="section split-absolute-image tablet-vertical w3-hide-small w3-hide-medium">
+            <div class="container left-text tab-et-relative">
+                <div class="div-50 tablet-100 mobile-centre-align buy">
+                    <div class="right-promo">
+                        <div class="space-80"></div>
+                        <br>
+                        <br>
+                        <h2 class="h2-small small-caps-2 about">Instala a nossa app</h2>
+                        <div class="space-16"></div>
+                        <div class="mobile-centre-align">
+                            <br>
+                            <h3 class="small-caps-2 mobile-centre-align about-info">Uma aplicação desenhada para ti</h3>
+                            <br>
+                            <p class="team-text">A nossa aplicação permite uma rápida instalação para começares a treinar o mais rápido possível.</p>
+                            <br>
+                            <h3 class="small-caps-2 mobile-centre-align about-info">Junta-te a uma comunidade</h3>
+                            <br>
+                            <p class="team-text">Entra na nossa comunidade, onde terás acesso a um chat 24/7 para colocares as tuas questões!</p>
+                            <br>
+                            <div class="centred-text mobile-centre-align">
+                                <div class="space-16"></div>
+                                <div><a href="https://play.google.com/store/apps/details/Fitr_Client_App?id=com.fitr_training.client&pli=1" class="button">Instala a App</a></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="left-promo">
+                    <!-- normal video-->
+                    <div class="right-absolute-image">
+                        <video width="80%" muted autoplay playsinline loop data-object fit="cover">
+                            <source src="/static/finalproject/fitr_app.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Install App mobile -->
+        <div class="section split-absolute-image tablet-vertical wf-section w3-hide-large mobile">
+            <div class="container left-text tab-et-relative">
+                <div class="div-50 tablet-100 mobile-centre-align">
+                    <div class="space-80"></div>
+                    <br>
+                    <br>
+                    <h2 class="h2-small small-caps-2 about">Instala a nossa app</h2>
+                    <div class="space-16"></div>
+                    <div class="mobile-centre-align">
+                        <br>
+                        <h3 class="small-caps-2 mobile-centre-align about-info">Uma aplicação desenhada para ti</h3>
+                        <br>
+                        <p class="team-text">A nossa aplicação permite uma rápida instalação para começares a treinar o mais rápido possível.</p>
+                        <br>
+                        <h3 class="small-caps-2 mobile-centre-align about-info">Junta-te a uma comunidade</h3>
+                        <br>
+                        <p class="team-text">Entra na nossa comunidade, onde terás acesso a um chat 24/7 para colocares as tuas questões!</p>
+                        <br>
+                        <div class="centred-text mobile-centre-align">
+                            <div class="space-16"></div>
+                            <div><a href="https://play.google.com/store/apps/details/Fitr_Client_App?id=com.fitr_training.client&pli=1" class="button">Instala a App</a></div></div>
+                    </div>
+                </div>
+            </div>
+            <!-- normal video-->
+            <div class="mobile-centre-align">
+                <video width="80%" muted autoplay playsinline loop data-object fit="cover">
+                    <source src="/static/finalproject/fitr_app.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+  
+
+
+    <!-- Buy Program -->
+         <div class="section split-absolute-image tablet-vertical wf-section w3-hide-small w3-hide-medium">
+            <div class="container left-text tab-et-relative">
+                <div class="div-50 tablet-100 mobile-centre-align buy">
+                    <div class="left-promo mobile-centre-align centred-text">
+                        <div class="space-80"></div>
+                        <br>
+                        <br>
+                        <h2 class="h2-small small-caps-2 about">Inicia a tua jornada</h2>
+                        <div class="space-16"></div>
+                        <div class="mobile-centre-align">
+                            <br>
+                            <h3 class="small-caps-2 mobile-centre-align about-info">Fácil de começar</h3>
+                            <br>
+                            <p class="team-text">Escolhe o programa que desejas, procede ao pagamento e começa a treinar imediatamente.</p>
+                            <br>
+                            <h3 class="small-caps-2 mobile-centre-align about-info">Treina ao teu ritmo</h3>
+                            <br>
+                            <p class="team-text">Tens uma data específica para começar? Não te preocupes podes escolher a data que quiseres!</p>
+                            <br>
+                            <div class="centred-text mobile-centre-align">
+                                <div class="space-16"></div>
+                                <p class="buy-warning">Garante que tens a tua sessão iniciada</p>
+                                <div><a href="https://app.fitr.training/plan/{{ pack.fitr }}/purchase?" class="button">Quero começar</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right-promo">
+                        <!-- normal video-->
+                        <div class="right-absolute-image mobile-centre-align">
+                            <video class="normal-video" width="80%" muted autoplay playsinline loop data-object fit="cover">
+                                <source src="{{ pack.video }}" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+         </div>
+
+        <!-- Buy Program mobile -->
+        <div class="section split-absolute-image tablet-vertical wf-section w3-hide-large mobile">
+            <div class="container left-text tab-et-relative">
+                <div class="div-50 tablet-100 mobile-centre-align">
+                    <div class="mobile-centre-align centred-text">
+                        <div class="space-80"></div>
+                        <br>
+                        <br>
+                        <h2 class="h2-small small-caps-2 about">Inicia a tua jornada</h2>
+                        <div class="space-16"></div>
+                        <div class="mobile-centre-align">
+                            <br>
+                            <h3 class="small-caps-2 mobile-centre-align about-info">Fácil de começar</h3>
+                            <br>
+                            <p class="team-text">Escolhe o programa que desejas, procede ao pagamento e começa a treinar imediatamente.</p>
+                            <br>
+                            <h3 class="small-caps-2 mobile-centre-align about-info">Treina ao teu ritmo</h3>
+                            <br>
+                            <p class="team-text">Tens uma data específica para começar? Não te preocupes podes escolher a data que quiseres!</p>
+                            <br>
+                            <div class="centred-text mobile-centre-align">
+                                <div class="space-16"></div>
+                                <p class="buy-warning">Garante que tens a tua sessão iniciada</p>
+                                <div><a href="https://app.fitr.training/plan/{{ pack.fitr }}/purchase?" class="button">Quero começar</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- normal video-->
+                    <div class="mobile-centre-align">
+                        <video class="normal-video" width="80%" muted autoplay playsinline loop data-object fit="cover">
+                            <source src="{{ pack.video }}" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <br><br><br><br>
+{% endblock %}
+
+

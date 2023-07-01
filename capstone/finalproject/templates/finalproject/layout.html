@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>    
+        <!-- Port to mobile users -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- link styles -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+        <link href="/static/finalproject/styles.css" rel="stylesheet">
+        
+
+        <!-- Set icon on title page-->
+        <link rel="icon" href="/static/finalproject/max_logo_notext_black.jpg">
+
+        <!-- Javascript link-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+        <script src="/static/finalproject/script.js"></script>
+
+        <!-- Tittle of webpage-->
+        <title>Max Your Workout{% block title %}{% endblock %}</title>
+    </head>
+    <body>
+
+            <!-- Navbar (sit on top) -->
+            <div class="w3-top" id="navbar">
+                <div class="w3-bar w3-card" id="myNavbar">
+                    <a href="/" class="w3-bar-item w3-wide">
+                    <img class="logo" src="/static/finalproject/max_logo_notext_black.jpg">
+                    </a>
+                <!-- Right-sided navbar links -->
+                    <div class="w3-right w3-hide-small small-caps-2 small-nav">
+                        {% if user.is_authenticated %}
+                            <a href="{% url 'profile' %}"id="user-name-item" class="w3-bar-item"> {{ user.nickname }}</a>
+                            <a href="{% url 'logout' %}" class="w3-bar-item w3-button"><i class="fa fa-sign-out"></i> LOGOUT</a>
+                        {% else %}
+                            <a href="{% url 'register' %}" class="w3-bar-item w3-button"> REGISTO</a>
+                            <a href="{% url 'login' %}" class="w3-bar-item w3-button"><i class="fa fa-sign-in"></i> LOGIN</a>
+                        {% endif %}
+                        <a href="/#about" class="w3-bar-item w3-button">SOBRE</a>
+                        <a href="/#team" class="w3-bar-item w3-button"><i class="fa fa-user"></i> A EQUIPA</a>
+                        <a href="/#pack" class="w3-bar-item w3-button"><i class="fa fa-th"></i> PACOTES</a>
+                        <a href="/#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACTOS</a>
+                    </div>
+                    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+                    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+                    <i class="fa fa-bars header"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Sidebar on small screens when clicking the menu icon -->
+            <nav class="w3-sidebar w3-bar-block w3-card w3-animate-left w3-hide-large small-caps-2" id="mySidebar">
+            <a onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16 x">×</a>
+            {% if user.is_authenticated %}
+                <a id="user-name-item" class="w3-bar-item"> {{ user.nickname }}</a>
+                <a href="{% url 'logout' %}" class="w3-bar-item w3-button"><i class="fa fa-sign-out"></i> LOGOUT</a>
+            {% else %}   
+                <a href="{% url 'register' %}" class="w3-bar-item w3-button"> REGISTO</a>
+                <a href="{% url 'login' %}" class="w3-bar-item w3-button"> LOGIN</a>
+            {% endif %}
+            <a href="/#about" onclick="w3_close()" class="w3-bar-item w3-button">SOBRE</a>
+            <a href="/#team" onclick="w3_close()" class="w3-bar-item w3-button">A EQUIPA</a>
+            <a href="/#pack" onclick="w3_close()" class="w3-bar-item w3-button">PACOTES</a>
+            <a href="/#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACTOS</a>
+            </nav>
+            
+            <!-- header -->
+            {% block head %}{% endblock %}
+
+            <!-- main -->
+            <main>
+            <!-- Layout for different pages -->
+                {% block body %}{% endblock %}
+            </main>
+            
+            <!-- Footer -->
+            <footer class="w3-center w3-padding-64 foot">
+                <a href="#top" class="w3-button w3-light-grey small-caps-2 x"><i class="fa fa-arrow-up w3-margin-right"></i>Voltar ao ínicio</a>
+                <div class="w3-xlarge w3-section">
+                    <i id="instagram_footer" class="fa fa-instagram w3-hover-opacity instagram header" onclick="instagram()"></i>
+                </div>
+                <p class="small-caps-2 header">MaxyourWorkout</p>
+            </footer>
+
+    </body>
+</html>
